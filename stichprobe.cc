@@ -1,6 +1,6 @@
 #include <fstream>
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 double sum(){
   std::ifstream fin("datensumme.txt");
@@ -13,17 +13,24 @@ double sum(){
   sum = sum/234;
   return sum;
 }
-int main() {
-  std::cout << sum() << std::endl;
-  //1b
-  
+
+double varianz(){
   std::ifstream fin("datensumme.txt");
   int a;
   double summ = sum();
-  double summe = 0;
-  for(int i = 0 ; i < 234 ; ++i) {
+  double varianz = 0;
+  for(int i = 0 ; i < 234 ; ++i){
     fin >> a;
-    summe = pow(a - summ,2);
+    varianz = varianz + pow(a - summ,2);
   }
-  std::cout << summe << std::endl;
+  return varianz/234;
+}
+int main() {
+  //1a
+  std::cout << sum() << std::endl;
+  //1b
+  std::cout << varianz() << std::endl;
+  //1c
+  double stab = sqrt(varianz());
+  std::cout << stab << std::endl;
 }
