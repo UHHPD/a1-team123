@@ -24,11 +24,13 @@ int main() {
       varianz = varianz + pow(b - sum,2);
       }
     count += 1;
-    ofstream fou("mittelwert.txt");
+    ofstream fou("mittelwerte.txt", ios::app);
     fou << sum << endl;
     fou.close();
-    ofstream fout("mittelwert.txt");
-    fout << varianz << endl;
+    ofstream fout("varianzen.txt", ios::app);
+    fout << (varianz/9) << endl;
     fout.close();
+    varianz = 0;
+    sum = 0;
     }
   }
