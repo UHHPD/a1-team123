@@ -3,6 +3,17 @@ using namespace std;
 #include <iostream>
 #include <cmath>
 
+double sum2(string name){
+  ifstream fin(name);
+  int a;
+  double sum = 0;
+  for(int i = 0 ; i < 26 ; ++i) {
+    fin >> a;
+    sum = sum + a;
+  }
+  sum = sum/26;
+  return sum;
+}
 int main() {
   //2a
   ifstream fin("datensumme.txt");
@@ -24,13 +35,18 @@ int main() {
       varianz = varianz + pow(b - sum,2);
       }
     count += 1;
+    varianz = varianz/9;
     ofstream fou("mittelwerte.txt", ios::app);
     fou << sum << endl;
     fou.close();
     ofstream fout("varianzen.txt", ios::app);
-    fout << (varianz/9) << endl;
+    fout << varianz << endl;
     fout.close();
     varianz = 0;
     sum = 0;
     }
+  cout << sum2("mittelwerte.txt") << endl; 
+  cout << sum2("varianzen.txt") << endl;
   }
+
+
