@@ -23,7 +23,7 @@ int main() {
       fin2 >> b;
       varianz = varianz + pow(b - sum,2);
       }
-    count =+ 1;
+    count += 1;
     ofstream fou("mittelwert.txt");
     fou << sum << endl;
     fou.close();
