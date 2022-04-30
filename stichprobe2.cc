@@ -5,13 +5,13 @@ using namespace std;
 
 double sum2(string name){
   ifstream fin(name);
-  int a;
+  double a;
   double sum = 0;
   for(int i = 0 ; i < 26 ; ++i) {
     fin >> a;
     sum = sum + a;
   }
-  sum = sum/26;
+  sum = sum/26.0;
   return sum;
 }
 int main() {
